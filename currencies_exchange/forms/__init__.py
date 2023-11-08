@@ -1,0 +1,1 @@
+from .currency_rate_form import CurrencyRateForm
