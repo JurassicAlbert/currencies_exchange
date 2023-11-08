@@ -33,4 +33,50 @@ To offer a convenient way for users to access and exchange currency rates. The g
 
 ---
 
+### Project Setup Steps
+
+1. **Install Virtual Environment (Windows Command Prompt)**
+   ```bash
+   python -m venv venv
+   venv\Scripts\activate
+   ```
+   
+2**Set Environment Variables in .env File**
+   ```bash
+   SECRET_KEY=your_django_secret_key
+   CURRENCY_API_KEY=your_currency_api_key
+   ```
+
+3**Install Requirements from requirements.txt**
+   ```bash
+  pip install -r requirements.txt
+   ```
+
+4**Apply Database Migrations (Django Command)**
+   ```bash
+  python manage.py makemigrations
+  python manage.py migrate
+   ```
+
+5**Populate Currencies Database**
+   ```bash
+  python manage.py loaddata currencies/fixtures/currencies.json
+   ```
+
+6**Create Superuser Admin**
+   ```bash
+  python manage.py createsuperuser --email admin@admin.com --username admin
+   ```
+
+**Run test using pytest**
+   ```bash
+  pytest
+   ```
+
+**Run Server**
+   ```bash
+  python manage.py runserver
+   ```
+
+
 **Note:** This project was developed on Windows using Python 3.12.0.
