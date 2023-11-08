@@ -28,7 +28,7 @@ class Command(BaseCommand):
                         self.stdout.write(
                             self.style.SUCCESS(f'Successfully created Currency: {currency.currency_name}'))
                     else:
-                        self.stdout.write(self.style.SUCCESS(f'Currency already exists: {currency.currency_name}'))
+                        self.stdout.write(self.style.WARNING(f'Currency already exists: {currency.currency_name}'))
                 else:
                     self.stdout.write(self.style.ERROR(f'Invalid currency name for code {currency_code}'))
         else:
