@@ -9,5 +9,5 @@ router.register(r'currency', currency_api_views.CurrencyAPIView, basename="Curre
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('currency/', currency_api_views.CurrencyAPIView.as_view())
+    path('currency/', currency_api_views.CurrencyAPIView.as_view(), name='currency-api')
 ]
