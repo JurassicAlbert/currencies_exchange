@@ -119,3 +119,4 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 DATETIME_FORMAT = '%Y-%m-%d %H:%M:%S'
+CURRENCY_API_KEY = config('CURRENCY_API_KEY')
