@@ -9,6 +9,7 @@ class CurrencyAPIViewTest(TestCase):
         self.view = CurrencyAPIView.as_view()
 
     def test_get_currencies(self):
-        request = self.factory.get('/currencies/')
+        request = self.factory.get('/currency/')
+        print(request)
         response = self.view(request)
         self.assertEqual(response.status_code, 200)
