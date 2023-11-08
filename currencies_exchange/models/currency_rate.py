@@ -47,3 +47,7 @@ class CurrencyRate(models.Model):
                     raise ValidationError(f'Failed to fetch currency exchange rate: {e}')
 
         super(CurrencyRate, self).save(*args, **kwargs)
+
+    class Meta:
+        ordering = ['id', 'currency_base', 'currency_target', 'rate', 'history_date']
+        verbose_name_plural = "Historical Rates"
