@@ -33,4 +33,4 @@ To offer a convenient way for users to access and exchange currency rates. The g
 
 ---
 
-**Note:** This project was developed on Windows using Python 3.11.2.
+**Note:** This project was developed on Windows using Python 3.12.0.
