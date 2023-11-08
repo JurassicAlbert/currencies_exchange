@@ -1,6 +1,6 @@
-from ..models.currency_rate import CurrencyRate
 from rest_framework import serializers
 from ..settings import DATETIME_FORMAT
+from ..models.currency_rate import CurrencyRate
 
 
 class CurrencyRateSerializer(serializers.Serializer):
