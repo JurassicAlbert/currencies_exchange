@@ -9,8 +9,8 @@ class CurrencyAPIView(APIView):
 
     def get(self, request):
         all_currencies = Currency.objects.all()
-        if not all_currencies:
+        serialized_currencies = CurrencySerializer(all_currencies, many=True)
+        if not serialized_currencies:
             return Response("Unable to find currencies data", status=status.HTTP_404_NOT_FOUND)
         else:
-            serialized_currencies = CurrencySerializer(all_currencies, many=True)
             return Response(serialized_currencies.data, status=status.HTTP_200_OK)
