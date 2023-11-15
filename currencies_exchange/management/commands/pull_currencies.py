@@ -1,16 +1,43 @@
 import requests
 from currencies_exchange.models import Currency
 from django.core.management.base import BaseCommand
-
 from currencies_exchange.settings import CURRENCY_API_KEY
 
 
 class Command(BaseCommand):
-    help = 'Fetch data from external API and save it to the database'
+    """
+    Django management command for getting data from an external API and saving it to the database.
 
-    def handle(self, *args, **options):
+    This command retrieves information about currencies from an external API and updates
+    the Currency model in the database with the fetched data.
+
+    Attributes:
+        help (str): A short description of the command's purpose.
+
+    Methods:
+        handle(*args, **options): Executes the command's logic.
+
+    Example:
+        To pull currencies data from the external API and update database:
+        python manage.py pull_currencies
+    """
+
+    help = 'Get data from external API and save it to the database'
+
+    def handle(self):
+        """
+        Executes the command's logic.
+
+        Fetches data from an external API and updates the Currency model in the database
+        with the fetched information.
+
+        Args:
+            *args: Additional positional arguments.
+            **options: Additional keyword arguments.
+        """
         url = f'https://api.currencyapi.com/v3/currencies?apikey={CURRENCY_API_KEY}'
         response = requests.get(url)
+
         if response.status_code == 200:
             all_currencies = response.json().get('data', {})
             for currency_code, currency_data in all_currencies.items():
